@@ -166,7 +166,6 @@
 				52D11E9C2A1882C70044E288 /* Extensions */,
 				52D11E9D2A1882CE0044E288 /* Managers */,
 				52D11E9E2A1882D50044E288 /* Models */,
-				52FD745B2A322E21002FC615 /* Trip */,
 				52D11E8F2A18826E0044E288 /* Preview Content */,
 			);
 			path = Uber;
@@ -194,6 +193,7 @@
 				52A2D9C62A190F7900B738EA /* Home */,
 				52A2D9C72A190F8200B738EA /* LocationSearch */,
 				52FD74592A322B92002FC615 /* Map */,
+				52FD745B2A322E21002FC615 /* Trip */,
 				52441BBF2A2FF59200166D43 /* Views */,
 			);
 			path = Core;

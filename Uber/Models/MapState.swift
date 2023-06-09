@@ -15,7 +15,7 @@ enum MapState {
   case searchingForLocation
   case locationSelected
   case drawingRoute
-  case recentering
+	case showingSideMenu
 
   // MARK: Helpers
   

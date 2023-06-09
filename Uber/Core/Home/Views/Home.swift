@@ -17,8 +17,13 @@ struct Home: View {
   var body: some View {
     ZStack {
       ZStack(alignment: .top) {
+				Color.theme.secondaryBackgroundColor
+					.ignoresSafeArea()
+				
         Map(mapState: $mapState)
+					.shadow(radius: 8)
           .ignoresSafeArea()
+					.offset(mapState == .showingSideMenu ? .init(width: 250, height: 0) : .zero)
 
         if mapState == .default {
           LocationSearchButton()

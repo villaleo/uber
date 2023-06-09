@@ -34,18 +34,18 @@ struct MapActionButton: View {
   private func action(for state: MapState) {
     switch mapState {
     case .default:
-      break // TODO: Side menu
-    default:
+			mapState = .showingSideMenu
+		case .searchingForLocation, .locationSelected, .drawingRoute, .showingSideMenu:
       mapState = .default
     }
   }
   
   private func imageName(for state: MapState) -> String {
     switch state {
-    case .searchingForLocation, .locationSelected, .drawingRoute:
+		case .default:
+			return "line.3.horizontal"
+		case .searchingForLocation, .locationSelected, .drawingRoute, .showingSideMenu:
       return "arrow.left"
-    default:
-      return "line.3.horizontal"
     }
   }
 }

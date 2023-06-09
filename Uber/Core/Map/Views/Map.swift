@@ -86,7 +86,7 @@ extension Map {
         span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
       )
       
-      if parent.mapState == .default && willRecenterMapView(on: userLocation) {
+      if parent.mapState == .default {
         self.parent.mapView.setRegion(region, animated: true)
         self.currentRegion = region
         self.userLocation = userLocation.coordinate
@@ -138,25 +138,6 @@ extension Map {
       if let region = currentRegion {
         parent.mapView.setRegion(region, animated: true)
       }
-    }
-    
-    private func willRecenterMapView(on userLocation: MKUserLocation) -> Bool {
-      guard let previousCoordinate = parent.locationManager.previousUserLocation else {
-        parent.locationManager.previousUserLocation = userLocation.coordinate
-        return true
-      }
-      
-      let previousLocation = CLLocation(
-        latitude: previousCoordinate.latitude,
-        longitude: previousCoordinate.longitude
-      )
-      let currentLocation = CLLocation(
-        latitude: userLocation.coordinate.latitude,
-        longitude: userLocation.coordinate.longitude
-      )
-      
-      let fiftyFeet: CLLocationDistance = 15.24
-      return previousLocation.distance(from: currentLocation) > fiftyFeet
     }
     
   }

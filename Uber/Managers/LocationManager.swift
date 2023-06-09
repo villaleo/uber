@@ -14,7 +14,6 @@ class LocationManager: NSObject, ObservableObject {
   // MARK: Properties
   
   @Published var userLocation: CLLocationCoordinate2D?
-  @Published var previousUserLocation: CLLocationCoordinate2D?
   
   private let manager = CLLocationManager()
   static let shared = LocationManager()
@@ -42,7 +41,6 @@ extension LocationManager: CLLocationManagerDelegate {
       return
     }
     
-    previousUserLocation = userLocation
     userLocation = location.coordinate
     manager.stopUpdatingLocation()
   }

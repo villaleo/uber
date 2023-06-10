@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - HomeSideMenuButton
+
 struct HomeSideMenuButton: View {
 	
 	let title: String
@@ -23,6 +25,8 @@ struct HomeSideMenuButton: View {
 	}
 	
 }
+
+// MARK: - HomeSideMenuButton_Previews
 
 struct HomeSideMenuButton_Previews: PreviewProvider {
 	

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5213B6B72A35227C0079FE49 /* HomeSideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6B62A35227C0079FE49 /* HomeSideMenuButton.swift */; };
+		5213B6B92A3523D70079FE49 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6B82A3523D70079FE49 /* SideMenu.swift */; };
 		5233E4E12A2FBCE500A0179B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233E4E02A2FBCE500A0179B /* Color.swift */; };
 		52441BB82A2FD03C00166D43 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB72A2FD03C00166D43 /* Double.swift */; };
 		52441BBA2A2FD5BB00166D43 /* TripDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB92A2FD5BB00166D43 /* TripDestination.swift */; };
@@ -14,6 +16,7 @@
 		52441BBE2A2FF2A100166D43 /* LocationSearchMapResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BBD2A2FF2A100166D43 /* LocationSearchMapResults.swift */; };
 		52441BC12A2FF5C800166D43 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BC02A2FF5C800166D43 /* Waypoint.swift */; };
 		526958E42A298769003E80E4 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526958E32A298769003E80E4 /* Ride.swift */; };
+		527CE16B2A34D0E200A11079 /* HomeSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CE16A2A34D0E200A11079 /* HomeSideMenu.swift */; };
 		52A2D9CB2A190FB300B738EA /* LocationSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CA2A190FB300B738EA /* LocationSearchButton.swift */; };
 		52A2D9CD2A19117200B738EA /* MapActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CC2A19117200B738EA /* MapActionButton.swift */; };
 		52A2D9CF2A1912ED00B738EA /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CE2A1912ED00B738EA /* LocationSearch.swift */; };
@@ -37,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5213B6B62A35227C0079FE49 /* HomeSideMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideMenuButton.swift; sourceTree = "<group>"; };
+		5213B6B82A3523D70079FE49 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		5233E4E02A2FBCE500A0179B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52441BB72A2FD03C00166D43 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		52441BB92A2FD5BB00166D43 /* TripDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDestination.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		52441BBD2A2FF2A100166D43 /* LocationSearchMapResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchMapResults.swift; sourceTree = "<group>"; };
 		52441BC02A2FF5C800166D43 /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		526958E32A298769003E80E4 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		527CE16A2A34D0E200A11079 /* HomeSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideMenu.swift; sourceTree = "<group>"; };
 		52A2D9CA2A190FB300B738EA /* LocationSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchButton.swift; sourceTree = "<group>"; };
 		52A2D9CC2A19117200B738EA /* MapActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionButton.swift; sourceTree = "<group>"; };
 		52A2D9CE2A1912ED00B738EA /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 				52FCA23C2A28643200EE9C61 /* MapState.swift */,
 				526958E32A298769003E80E4 /* Ride.swift */,
 				52441BB92A2FD5BB00166D43 /* TripDestination.swift */,
+				5213B6B82A3523D70079FE49 /* SideMenu.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				52D11EA12A1882F50044E288 /* Home.swift */,
+				527CE16A2A34D0E200A11079 /* HomeSideMenu.swift */,
+				5213B6B62A35227C0079FE49 /* HomeSideMenuButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +349,8 @@
 			files = (
 				52A7C68E2A32487F005F5D5F /* TripCardModifier.swift in Sources */,
 				52A2D9D32A1923EC00B738EA /* LocationSearchViewModel.swift in Sources */,
+				5213B6B72A35227C0079FE49 /* HomeSideMenuButton.swift in Sources */,
+				5213B6B92A3523D70079FE49 /* SideMenu.swift in Sources */,
 				52A2D9CF2A1912ED00B738EA /* LocationSearch.swift in Sources */,
 				526958E42A298769003E80E4 /* Ride.swift in Sources */,
 				52FD745D2A322ED3002FC615 /* TripConfirmRideButton.swift in Sources */,
@@ -352,6 +363,7 @@
 				52A2D9CD2A19117200B738EA /* MapActionButton.swift in Sources */,
 				52441BC12A2FF5C800166D43 /* Waypoint.swift in Sources */,
 				52A7C68C2A324525005F5D5F /* TripCard.swift in Sources */,
+				527CE16B2A34D0E200A11079 /* HomeSideMenu.swift in Sources */,
 				52A7C6812A323183005F5D5F /* TripPaymentMethodSelection.swift in Sources */,
 				52441BB82A2FD03C00166D43 /* Double.swift in Sources */,
 				52A2D9D12A19167E00B738EA /* LocationSearchMapResultsCell.swift in Sources */,

@@ -17,19 +17,26 @@ struct Home: View {
   var body: some View {
     ZStack {
       ZStack(alignment: .top) {
-				Color.theme.secondaryBackgroundColor
+				HomeSideMenu()
 					.ignoresSafeArea()
 				
         Map(mapState: $mapState)
 					.shadow(radius: 8)
           .ignoresSafeArea()
-					.offset(mapState == .showingSideMenu ? .init(width: 250, height: 0) : .zero)
+					.offset(mapState == .showingSideMenu ? .init(width: 270, height: 0) : .zero)
+					.onTapGesture {
+						if mapState == .showingSideMenu {
+							withAnimation(.spring(dampingFraction: 0.7)) {
+								mapState = .default
+							}
+						}
+					}
 
         if mapState == .default {
           LocationSearchButton()
             .padding(.top, 80)
             .onTapGesture {
-              withAnimation(.spring()) {
+              withAnimation(.spring(dampingFraction: 0.7)) {
                 mapState = .searchingForLocation
               }
             }

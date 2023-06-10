@@ -15,7 +15,7 @@ struct MapActionButton: View {
   
   var body: some View {
     Button {
-      withAnimation(.spring()) {
+			withAnimation(.spring(dampingFraction: 0.7)) {
         action(for: mapState)
       }
     } label: {
@@ -44,8 +44,10 @@ struct MapActionButton: View {
     switch state {
 		case .default:
 			return "line.3.horizontal"
-		case .searchingForLocation, .locationSelected, .drawingRoute, .showingSideMenu:
+		case .searchingForLocation, .locationSelected, .drawingRoute:
       return "arrow.left"
+		case .showingSideMenu:
+			return "arrow.right"
     }
   }
 }

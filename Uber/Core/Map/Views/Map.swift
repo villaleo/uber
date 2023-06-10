@@ -31,8 +31,8 @@ extension Map: UIViewRepresentable {
   func makeUIView(context: Context) -> some UIView {
     mapView.delegate = context.coordinator
     mapView.isRotateEnabled = false
-    mapView.isZoomEnabled = true
-    mapView.isScrollEnabled = true
+    mapView.isZoomEnabled = false
+    mapView.isScrollEnabled = false
     mapView.showsUserLocation = true
     mapView.userTrackingMode = .follow
     return mapView
@@ -42,11 +42,14 @@ extension Map: UIViewRepresentable {
     switch mapState {
     case .default:
       context.coordinator.clearMapViewAndRecenterOnUserRegion()
+			context.coordinator.toggleIsMapInteractive()
     case .locationSelected:
       if let destination = locationViewModel.selectedDestination {
         context.coordinator.addAndSelectAnnotation(with: destination.coordinate)
         context.coordinator.configurePolyline(with: destination.coordinate)
       }
+		case .showingSideMenu:
+			context.coordinator.toggleIsMapInteractive()
     default:
       break
     }
@@ -139,6 +142,11 @@ extension Map {
         parent.mapView.setRegion(region, animated: true)
       }
     }
+		
+		fileprivate func toggleIsMapInteractive() {
+			parent.mapView.isZoomEnabled.toggle()
+			parent.mapView.isScrollEnabled.toggle()
+		}
     
   }
   

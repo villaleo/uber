@@ -12,7 +12,7 @@ import SwiftUI
 struct LocationSearch: View {
   
   @EnvironmentObject var viewModel: LocationSearchViewModel
-  @Binding var mapState: MapState
+  @Binding var appState: AppState
   
   var body: some View {
     VStack {
@@ -27,7 +27,7 @@ struct LocationSearch: View {
       Divider()
         .padding(.top, 8)
         .padding(.horizontal)
-      LocationSearchMapResults(mapState: $mapState)
+      LocationSearchMapResults(appState: $appState)
     }
     .background(Color.theme.backgroundColor)
   }
@@ -39,7 +39,7 @@ struct LocationSearch: View {
 struct LocationSearch_Previews: PreviewProvider {
   
   static var previews: some View {
-    LocationSearch(mapState: .constant(.searchingForLocation))
+    LocationSearch(appState: .constant(.searchingForLocation))
       .environmentObject(LocationSearchViewModel())
   }
   

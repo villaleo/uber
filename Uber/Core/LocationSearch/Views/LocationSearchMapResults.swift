@@ -12,7 +12,7 @@ import SwiftUI
 struct LocationSearchMapResults: View {
   
   @EnvironmentObject var viewModel: LocationSearchViewModel
-  @Binding var mapState: MapState
+  @Binding var appState: AppState
   
   var body: some View {
     ScrollView {
@@ -22,7 +22,7 @@ struct LocationSearchMapResults: View {
             .onTapGesture {
               withAnimation(.spring()) {
                 viewModel.selectLocation(result)
-                mapState = .locationSelected
+                appState = .locationSelected
               }
             }
         }
@@ -43,7 +43,7 @@ struct LocationSearchMapResults_Previews: PreviewProvider {
 	}
 	
   static var previews: some View {
-    LocationSearchMapResults(mapState: .constant(.default))
+    LocationSearchMapResults(appState: .constant(.idle))
 			.environmentObject(locationSearch)
   }
   

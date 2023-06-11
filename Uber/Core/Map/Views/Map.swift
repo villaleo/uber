@@ -15,7 +15,7 @@ struct Map {
   // MARK: Properties
   
   @EnvironmentObject var locationViewModel: LocationSearchViewModel
-  @Binding var mapState: MapState
+  @Binding var appState: AppState
   
   let mapView = MKMapView()
   let locationManager = LocationManager.shared
@@ -39,8 +39,8 @@ extension Map: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: UIViewType, context: Context) {
-    switch mapState {
-    case .default:
+    switch appState {
+    case .idle:
       context.coordinator.clearMapViewAndRecenterOnUserRegion()
 			context.coordinator.toggleIsMapInteractive()
     case .locationSelected:
@@ -89,7 +89,7 @@ extension Map {
         span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
       )
       
-      if parent.mapState == .default {
+      if parent.appState == .idle {
         self.parent.mapView.setRegion(region, animated: true)
         self.currentRegion = region
         self.userLocation = userLocation.coordinate
@@ -121,7 +121,7 @@ extension Map {
       }
       
       parent.locationViewModel.getDestinationRoute(from: location, to: destination) { route in
-        self.parent.mapState = .drawingRoute
+        self.parent.appState = .drawingRoute
         self.parent.mapView.removeOverlays(self.parent.mapView.overlays)
         self.parent.mapView.addOverlay(route.polyline)
         

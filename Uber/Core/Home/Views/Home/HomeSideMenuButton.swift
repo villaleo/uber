@@ -11,13 +11,18 @@ import SwiftUI
 
 struct HomeSideMenuButton: View {
 	
-	let title: String
+	@Binding var appState: AppState
+	@Binding var selection: SideMenuButton
+	
+	let label: String
 	
 	var body: some View {
 		Button {
-			
+			withAnimation(.spring(dampingFraction: 0.7)) {
+				appState = .showing(view: selection)
+			}
 		} label: {
-			Text(title)
+			Text(label)
 				.padding(.vertical, 8)
 				.fontWeight(.semibold)
 				.foregroundColor(.theme.primaryTextColor)
@@ -31,7 +36,7 @@ struct HomeSideMenuButton: View {
 struct HomeSideMenuButton_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		HomeSideMenuButton(title: "Profile")
+		HomeSideMenuButton(appState: .constant(.showingSideMenu), selection: .constant(.profile), label: "Profile")
 	}
 	
 }

@@ -12,47 +12,54 @@ import SwiftUI
 struct Home: View {
   
   @EnvironmentObject var locationViewModel: LocationSearchViewModel
-  @State private var mapState = MapState.default
+  @State private var appState = AppState.idle
+	@State private var submenuSelection = SideMenuButton.profile
 
   var body: some View {
     ZStack {
       ZStack(alignment: .top) {
-				HomeSideMenu()
-					.ignoresSafeArea()
+				if appState == .showingSideMenu {
+					HomeSideMenu(appState: $appState, selection: $submenuSelection)
+						.ignoresSafeArea()
+				}
 				
-        Map(mapState: $mapState)
-					.shadow(radius: 8)
-          .ignoresSafeArea()
-					.offset(mapState == .showingSideMenu ? .init(width: 270, height: 0) : .zero)
-					.onTapGesture {
-						if mapState == .showingSideMenu {
-							withAnimation(.spring(dampingFraction: 0.7)) {
-								mapState = .default
+				if appState.isShowingSideMenuSubview() {
+					SideMenuButton.view(for: submenuSelection)
+				} else {
+        	Map(appState: $appState)
+						.shadow(radius: 8)
+						.ignoresSafeArea()
+						.offset(appState == .showingSideMenu ? .init(width: 270, height: 0) : .zero)
+						.onTapGesture {
+							if appState == .showingSideMenu {
+								withAnimation(.spring(dampingFraction: 0.7)) {
+									appState = .idle
+								}
 							}
 						}
+
+					if appState == .idle {
+						LocationSearchButton()
+							.padding(.top, 80)
+							.onTapGesture {
+								withAnimation(.spring(dampingFraction: 0.7)) {
+									appState = .searchingForLocation
+								}
+							}
+					} else if appState == .searchingForLocation {
+						LocationSearch(appState: $appState)
 					}
-
-        if mapState == .default {
-          LocationSearchButton()
-            .padding(.top, 80)
-            .onTapGesture {
-              withAnimation(.spring(dampingFraction: 0.7)) {
-                mapState = .searchingForLocation
-              }
-            }
-        } else if mapState == .searchingForLocation {
-          LocationSearch(mapState: $mapState)
         }
-
-        MapActionButton(mapState: $mapState)
+				
+				MapActionButton(appState: $appState)
 					.frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.leading)
-          .padding(.top, 8)
+					.padding(.leading)
+					.padding(.top, 8)
       }
     }
     .sheet(
-      isPresented: .constant($mapState.wrappedValue.willTriggerRideRequest()),
-      onDismiss: { mapState = .default }
+      isPresented: .constant($appState.wrappedValue.willTriggerRideRequest()),
+      onDismiss: { appState = .idle }
     ) {
       TripCard()
 				.padding(.horizontal)

@@ -11,6 +11,9 @@ import SwiftUI
 
 struct HomeSideMenu: View {
 	
+	@Binding var appState: AppState
+	@Binding var selection: SideMenuButton
+	
 	var body: some View {
 		ZStack(alignment: .leading) {
 			Color.theme.secondaryBackgroundColor
@@ -51,8 +54,10 @@ struct HomeSideMenu: View {
 				.padding(.bottom, 20)
 				
 				VStack(alignment: .leading) {
-					ForEach(SideMenu.allCases) { menuOption in
-						HomeSideMenuButton(title: menuOption.description)
+					ForEach(SideMenuButton.allCases) { selection in
+						HomeSideMenuButton(appState: $appState,
+															 selection: $selection,
+															 label: selection.description)
 					}
 				}
 				.font(.title3)
@@ -72,7 +77,7 @@ struct HomeSideMenu_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		ZStack {
-			HomeSideMenu()
+			HomeSideMenu(appState: .constant(.showingSideMenu), selection: .constant(.profile))
 			
 			Color.theme.backgroundColor
 				.ignoresSafeArea()

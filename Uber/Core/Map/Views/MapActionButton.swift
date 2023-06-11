@@ -11,15 +11,15 @@ import SwiftUI
 
 struct MapActionButton: View {
   
-  @Binding var mapState: MapState
+  @Binding var appState: AppState
   
   var body: some View {
     Button {
 			withAnimation(.spring(dampingFraction: 0.7)) {
-        action(for: mapState)
+        action(for: appState)
       }
     } label: {
-      Image(systemName: imageName(for: mapState))
+      Image(systemName: imageName(for: appState))
         .font(.title2)
         .foregroundColor(.black)
         .padding()
@@ -31,20 +31,20 @@ struct MapActionButton: View {
   
   // MARK: Helpers
   
-  private func action(for state: MapState) {
-    switch mapState {
-    case .default:
-			mapState = .showingSideMenu
-		case .searchingForLocation, .locationSelected, .drawingRoute, .showingSideMenu:
-      mapState = .default
+  private func action(for state: AppState) {
+    switch appState {
+    case .idle:
+			appState = .showingSideMenu
+		default:
+      appState = .idle
     }
   }
   
-  private func imageName(for state: MapState) -> String {
+  private func imageName(for state: AppState) -> String {
     switch state {
-		case .default:
+		case .idle:
 			return "line.3.horizontal"
-		case .searchingForLocation, .locationSelected, .drawingRoute:
+		case .searchingForLocation, .locationSelected, .drawingRoute, .showing(_):
       return "arrow.left"
 		case .showingSideMenu:
 			return "arrow.right"
@@ -57,7 +57,7 @@ struct MapActionButton: View {
 struct MapActionButton_Previews: PreviewProvider {
   
   static var previews: some View {
-    MapActionButton(mapState: .constant(.default))
+    MapActionButton(appState: .constant(.idle))
   }
   
 }

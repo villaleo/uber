@@ -38,9 +38,9 @@ enum SideMenuButton: CaseIterable, Identifiable {
 		}
 	}
 	
-	static func destination(for menu: SideMenuButton) -> some View {
+	static func view(for button: SideMenuButton) -> some View {
 		Group {
-			switch menu {
+			switch button {
 			case .profile:
 				Profile()
 			case .history:

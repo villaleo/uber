@@ -13,6 +13,8 @@ struct HomeSideMenu: View {
 	
 	@Binding var appState: AppState
 	@Binding var selection: SideMenuButton
+	@Binding var mapOffset: (CGFloat, CGFloat)
+	@Binding var homeSideMenuOffset: (CGFloat, CGFloat)
 	
 	var body: some View {
 		ZStack(alignment: .leading) {
@@ -55,9 +57,13 @@ struct HomeSideMenu: View {
 				
 				VStack(alignment: .leading) {
 					ForEach(SideMenuButton.allCases) { selection in
-						HomeSideMenuButton(appState: $appState,
-															 selection: $selection,
-															 label: selection.description)
+						HomeSideMenuButton(
+							appState: $appState,
+							selection: $selection,
+							mapOffset: $mapOffset,
+							homeSideMenuOffset: $homeSideMenuOffset,
+							label: selection.description
+						)
 					}
 				}
 				.font(.title3)
@@ -77,7 +83,12 @@ struct HomeSideMenu_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		ZStack {
-			HomeSideMenu(appState: .constant(.showingSideMenu), selection: .constant(.profile))
+			HomeSideMenu(
+				appState: .constant(.showingSideMenu),
+				selection: .constant(.profile),
+				mapOffset: .constant((0, 0)),
+				homeSideMenuOffset: .constant((0, 0))
+			)
 			
 			Color.theme.backgroundColor
 				.ignoresSafeArea()

@@ -12,6 +12,8 @@ import SwiftUI
 struct MapActionButton: View {
   
   @Binding var appState: AppState
+	@Binding var mapOffset: (CGFloat, CGFloat)
+	@Binding var homeSideMenuOffset: (CGFloat, CGFloat)
   
   var body: some View {
     Button {
@@ -34,8 +36,12 @@ struct MapActionButton: View {
   private func action(for state: AppState) {
     switch appState {
     case .idle:
+			homeSideMenuOffset = (0, 0)
+			mapOffset = (270, 0)
 			appState = .showingSideMenu
 		default:
+			homeSideMenuOffset = (0, 0)
+			mapOffset = (0, 0)
       appState = .idle
     }
   }
@@ -44,9 +50,9 @@ struct MapActionButton: View {
     switch state {
 		case .idle:
 			return "line.3.horizontal"
-		case .searchingForLocation, .locationSelected, .drawingRoute, .showing(_):
+		case .searchingForLocation, .locationSelected, .drawingRoute:
       return "arrow.left"
-		case .showingSideMenu:
+		case .showingSideMenu, .showing(_):
 			return "arrow.right"
     }
   }
@@ -57,7 +63,11 @@ struct MapActionButton: View {
 struct MapActionButton_Previews: PreviewProvider {
   
   static var previews: some View {
-    MapActionButton(appState: .constant(.idle))
+		MapActionButton(
+			appState: .constant(.idle),
+			mapOffset: .constant((0, 0)),
+			homeSideMenuOffset: .constant((0, 0))
+		)
   }
   
 }

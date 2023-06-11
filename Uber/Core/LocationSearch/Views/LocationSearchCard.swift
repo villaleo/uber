@@ -1,5 +1,5 @@
 //
-//  LocationSearch.swift
+//  LocationSearchCard.swift
 //  Uber
 //
 //  Created by Leonardo Villalobos on 5/20/23.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - LocationSearch
+// MARK: - LocationSearchCard
 
-struct LocationSearch: View {
+struct LocationSearchCard: View {
   
   @EnvironmentObject var viewModel: LocationSearchViewModel
   @Binding var appState: AppState
@@ -21,7 +21,7 @@ struct LocationSearch: View {
           .padding(.trailing, 8)
         LocationSearchLocationInput()
       }
-      .padding(.top, 80)
+      .padding(.top, 20)
       .padding(.horizontal)
       
       Divider()
@@ -36,10 +36,10 @@ struct LocationSearch: View {
 
 // MARK: - LocationSearch_Previews
 
-struct LocationSearch_Previews: PreviewProvider {
+struct LocationSearchCard_Previews: PreviewProvider {
   
   static var previews: some View {
-    LocationSearch(appState: .constant(.searchingForLocation))
+    LocationSearchCard(appState: .constant(.searchingForLocation))
       .environmentObject(LocationSearchViewModel())
   }
   

@@ -15,6 +15,7 @@
 		5213B6C82A3529C90079FE49 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6C72A3529C90079FE49 /* Preferences.swift */; };
 		5213B6CA2A3529F00079FE49 /* ContactUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6C92A3529F00079FE49 /* ContactUs.swift */; };
 		5213B6CC2A352A130079FE49 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6CB2A352A130079FE49 /* Legal.swift */; };
+		5213B6CE2A3661E10079FE49 /* LocationSearchCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6CD2A3661E10079FE49 /* LocationSearchCardModifier.swift */; };
 		5233E4E12A2FBCE500A0179B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233E4E02A2FBCE500A0179B /* Color.swift */; };
 		52441BB82A2FD03C00166D43 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB72A2FD03C00166D43 /* Double.swift */; };
 		52441BBA2A2FD5BB00166D43 /* TripDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB92A2FD5BB00166D43 /* TripDestination.swift */; };
@@ -25,7 +26,7 @@
 		527CE16B2A34D0E200A11079 /* HomeSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527CE16A2A34D0E200A11079 /* HomeSideMenu.swift */; };
 		52A2D9CB2A190FB300B738EA /* LocationSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CA2A190FB300B738EA /* LocationSearchButton.swift */; };
 		52A2D9CD2A19117200B738EA /* MapActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CC2A19117200B738EA /* MapActionButton.swift */; };
-		52A2D9CF2A1912ED00B738EA /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CE2A1912ED00B738EA /* LocationSearch.swift */; };
+		52A2D9CF2A1912ED00B738EA /* LocationSearchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9CE2A1912ED00B738EA /* LocationSearchCard.swift */; };
 		52A2D9D12A19167E00B738EA /* LocationSearchMapResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9D02A19167E00B738EA /* LocationSearchMapResultsCell.swift */; };
 		52A2D9D32A1923EC00B738EA /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2D9D22A1923EC00B738EA /* LocationSearchViewModel.swift */; };
 		52A7C6812A323183005F5D5F /* TripPaymentMethodSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7C6802A323183005F5D5F /* TripPaymentMethodSelection.swift */; };
@@ -54,6 +55,7 @@
 		5213B6C72A3529C90079FE49 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		5213B6C92A3529F00079FE49 /* ContactUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUs.swift; sourceTree = "<group>"; };
 		5213B6CB2A352A130079FE49 /* Legal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
+		5213B6CD2A3661E10079FE49 /* LocationSearchCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchCardModifier.swift; sourceTree = "<group>"; };
 		5233E4E02A2FBCE500A0179B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52441BB72A2FD03C00166D43 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		52441BB92A2FD5BB00166D43 /* TripDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDestination.swift; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		527CE16A2A34D0E200A11079 /* HomeSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideMenu.swift; sourceTree = "<group>"; };
 		52A2D9CA2A190FB300B738EA /* LocationSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchButton.swift; sourceTree = "<group>"; };
 		52A2D9CC2A19117200B738EA /* MapActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionButton.swift; sourceTree = "<group>"; };
-		52A2D9CE2A1912ED00B738EA /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
+		52A2D9CE2A1912ED00B738EA /* LocationSearchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchCard.swift; sourceTree = "<group>"; };
 		52A2D9D02A19167E00B738EA /* LocationSearchMapResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchMapResultsCell.swift; sourceTree = "<group>"; };
 		52A2D9D22A1923EC00B738EA /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		52A7C6802A323183005F5D5F /* TripPaymentMethodSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPaymentMethodSelection.swift; sourceTree = "<group>"; };
@@ -186,7 +188,8 @@
 				52441BBB2A2FEF8300166D43 /* LocationSearchLocationInput.swift */,
 				52441BBD2A2FF2A100166D43 /* LocationSearchMapResults.swift */,
 				52A2D9D02A19167E00B738EA /* LocationSearchMapResultsCell.swift */,
-				52A2D9CE2A1912ED00B738EA /* LocationSearch.swift */,
+				52A2D9CE2A1912ED00B738EA /* LocationSearchCard.swift */,
+				5213B6CD2A3661E10079FE49 /* LocationSearchCardModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,10 +420,11 @@
 				5213B6C62A35299B0079FE49 /* Promotions.swift in Sources */,
 				5213B6CA2A3529F00079FE49 /* ContactUs.swift in Sources */,
 				52A2D9D32A1923EC00B738EA /* LocationSearchViewModel.swift in Sources */,
+				5213B6CE2A3661E10079FE49 /* LocationSearchCardModifier.swift in Sources */,
 				5213B6C22A3529220079FE49 /* Profile.swift in Sources */,
 				5213B6B72A35227C0079FE49 /* HomeSideMenuButton.swift in Sources */,
 				5213B6B92A3523D70079FE49 /* SideMenuButton.swift in Sources */,
-				52A2D9CF2A1912ED00B738EA /* LocationSearch.swift in Sources */,
+				52A2D9CF2A1912ED00B738EA /* LocationSearchCard.swift in Sources */,
 				526958E42A298769003E80E4 /* Ride.swift in Sources */,
 				52FD745D2A322ED3002FC615 /* TripConfirmRideButton.swift in Sources */,
 				52441BBA2A2FD5BB00166D43 /* TripDestination.swift in Sources */,

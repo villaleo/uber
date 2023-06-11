@@ -14,48 +14,68 @@ struct Home: View {
   @EnvironmentObject var locationViewModel: LocationSearchViewModel
   @State private var appState = AppState.idle
 	@State private var submenuSelection = SideMenuButton.profile
+	@State private var mapOffset: (CGFloat, CGFloat) = (0, 0)
+	@State private var homeSideMenuOffset: (CGFloat, CGFloat) = (0, 0)
+	
 
   var body: some View {
     ZStack {
       ZStack(alignment: .top) {
-				if appState == .showingSideMenu {
-					HomeSideMenu(appState: $appState, selection: $submenuSelection)
-						.ignoresSafeArea()
-				}
 				
 				if appState.isShowingSideMenuSubview() {
 					SideMenuButton.view(for: submenuSelection)
-				} else {
-        	Map(appState: $appState)
-						.shadow(radius: 8)
+						.padding(.top, 80)
+				}
+				
+				if appState == .showingSideMenu || appState.isShowingSideMenuSubview() {
+					HomeSideMenu(
+						appState: $appState,
+						selection: $submenuSelection,
+						mapOffset: $mapOffset,
+						homeSideMenuOffset: $homeSideMenuOffset
+					)
 						.ignoresSafeArea()
-						.offset(appState == .showingSideMenu ? .init(width: 270, height: 0) : .zero)
-						.onTapGesture {
-							if appState == .showingSideMenu {
-								withAnimation(.spring(dampingFraction: 0.7)) {
-									appState = .idle
-								}
+						.offset(x: homeSideMenuOffset.0, y: homeSideMenuOffset.1)
+				}
+				
+				Map(appState: $appState)
+					.shadow(radius: 8)
+					.ignoresSafeArea()
+					.offset(x: mapOffset.0, y: mapOffset.1)
+					.onTapGesture {
+						if appState == .showingSideMenu {
+							withAnimation(.spring(dampingFraction: 0.7)) {
+								mapOffset = (0, 0)
+								appState = .idle
 							}
 						}
-
-					if appState == .idle {
-						LocationSearchButton()
-							.padding(.top, 80)
-							.onTapGesture {
-								withAnimation(.spring(dampingFraction: 0.7)) {
-									appState = .searchingForLocation
-								}
-							}
-					} else if appState == .searchingForLocation {
-						LocationSearch(appState: $appState)
 					}
-        }
+					.sheet(isPresented: .constant(appState == .searchingForLocation)) {
+						LocationSearchCard(appState: $appState)
+							.modifier(LocationSearchCardModifier())
+					}
 				
-				MapActionButton(appState: $appState)
+				MapActionButton(
+					appState: $appState,
+					mapOffset: $mapOffset,
+					homeSideMenuOffset: $homeSideMenuOffset
+				)
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding(.leading)
 					.padding(.top, 8)
-      }
+
+				if appState == .idle {
+					LocationSearchButton()
+						.padding(.top, 80)
+						.onTapGesture {
+							withAnimation(.spring(dampingFraction: 0.7)) {
+								appState = .searchingForLocation
+							}
+						}
+				}
+				
+			}
+
     }
     .sheet(
       isPresented: .constant($appState.wrappedValue.willTriggerRideRequest()),

@@ -13,14 +13,20 @@ struct HomeSideMenuButton: View {
 	
 	@Binding var appState: AppState
 	@Binding var selection: SideMenuButton
+	@Binding var mapOffset: (CGFloat, CGFloat)
+	@Binding var homeSideMenuOffset: (CGFloat, CGFloat)
 	
 	let label: String
 	
 	var body: some View {
 		Button {
-			withAnimation(.spring(dampingFraction: 0.7)) {
-				appState = .showing(view: selection)
+			withAnimation(.spring(dampingFraction: 0.7, blendDuration: 0.1)) {
+				mapOffset = (450, 0)
 			}
+			withAnimation(.spring(dampingFraction: 0.7, blendDuration: 0.2).delay(0.2)) {
+				homeSideMenuOffset = (450, 0)
+			}
+			appState = .showing(view: selection)
 		} label: {
 			Text(label)
 				.padding(.vertical, 8)
@@ -36,7 +42,12 @@ struct HomeSideMenuButton: View {
 struct HomeSideMenuButton_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		HomeSideMenuButton(appState: .constant(.showingSideMenu), selection: .constant(.profile), label: "Profile")
+		HomeSideMenuButton(
+			appState: .constant(.showingSideMenu),
+			selection: .constant(.profile),
+			mapOffset: .constant((0, 0)),
+			homeSideMenuOffset: .constant((0, 0)),
+			label: "Profile")
 	}
 	
 }

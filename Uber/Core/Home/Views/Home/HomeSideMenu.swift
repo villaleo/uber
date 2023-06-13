@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeSideMenu: View {
 	
 	@Binding var appState: AppState
-	@Binding var selection: SideMenuButton
+	@Binding var submenuSelection: SideMenuButton
 	@Binding var mapOffset: (CGFloat, CGFloat)
 	@Binding var homeSideMenuOffset: (CGFloat, CGFloat)
 	
@@ -59,10 +59,11 @@ struct HomeSideMenu: View {
 					ForEach(SideMenuButton.allCases) { selection in
 						HomeSideMenuButton(
 							appState: $appState,
-							selection: $selection,
+							selection: $submenuSelection,
 							mapOffset: $mapOffset,
 							homeSideMenuOffset: $homeSideMenuOffset,
-							label: selection.description
+							label: selection.description,
+							target: selection
 						)
 					}
 				}
@@ -85,7 +86,7 @@ struct HomeSideMenu_Previews: PreviewProvider {
 		ZStack {
 			HomeSideMenu(
 				appState: .constant(.showingSideMenu),
-				selection: .constant(.profile),
+				submenuSelection: .constant(.profile),
 				mapOffset: .constant((0, 0)),
 				homeSideMenuOffset: .constant((0, 0))
 			)

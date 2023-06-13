@@ -1,5 +1,5 @@
 //
-//  Map.swift
+//  HomeMap.swift
 //  Uber
 //
 //  Created by Leonardo Villalobos on 5/19/23.
@@ -8,9 +8,9 @@
 import SwiftUI
 import MapKit
 
-// MARK: - Map
+// MARK: - HomeMap
 
-struct Map {
+struct HomeMap {
   
   // MARK: Properties
   
@@ -24,7 +24,7 @@ struct Map {
 
 // MARK: - Conform to UIViewRepresentable
 
-extension Map: UIViewRepresentable {
+extension HomeMap: UIViewRepresentable {
   
   // MARK: Required Functions
   
@@ -55,25 +55,25 @@ extension Map: UIViewRepresentable {
     }
   }
   
-  func makeCoordinator() -> MapCoordinator {
-    return MapCoordinator(parent: self)
+  func makeCoordinator() -> HomeMapCoordinator {
+    return HomeMapCoordinator(parent: self)
   }
   
 }
 
-extension Map {
+extension HomeMap {
   
-  // MARK: - MapCoordinator
+  // MARK: - HomeMapCoordinator
   
-  class MapCoordinator: NSObject, MKMapViewDelegate {
+  class HomeMapCoordinator: NSObject, MKMapViewDelegate {
     
-    let parent: Map
+    let parent: HomeMap
     var userLocation: CLLocationCoordinate2D?
     var currentRegion: MKCoordinateRegion?
     
     // MARK: Lifecycle
     
-    init(parent: Map) {
+    init(parent: HomeMap) {
       self.parent = parent
       super.init()
     }

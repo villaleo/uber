@@ -30,7 +30,7 @@ struct Home: View {
 				if appState == .showingSideMenu || appState.isShowingSideMenuSubview() {
 					HomeSideMenu(
 						appState: $appState,
-						selection: $submenuSelection,
+						submenuSelection: $submenuSelection,
 						mapOffset: $mapOffset,
 						homeSideMenuOffset: $homeSideMenuOffset
 					)
@@ -38,7 +38,7 @@ struct Home: View {
 						.offset(x: homeSideMenuOffset.0, y: homeSideMenuOffset.1)
 				}
 				
-				Map(appState: $appState)
+				HomeMap(appState: $appState)
 					.shadow(radius: 8)
 					.ignoresSafeArea()
 					.offset(x: mapOffset.0, y: mapOffset.1)
@@ -55,7 +55,7 @@ struct Home: View {
 							.modifier(LocationSearchCardModifier())
 					}
 				
-				MapActionButton(
+				HomeActionButton(
 					appState: $appState,
 					mapOffset: $mapOffset,
 					homeSideMenuOffset: $homeSideMenuOffset
@@ -65,13 +65,8 @@ struct Home: View {
 					.padding(.top, 8)
 
 				if appState == .idle {
-					LocationSearchButton()
+					LocationSearchButton(appState: $appState)
 						.padding(.top, 80)
-						.onTapGesture {
-							withAnimation(.spring(dampingFraction: 0.7)) {
-								appState = .searchingForLocation
-							}
-						}
 				}
 				
 			}

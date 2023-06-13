@@ -1,5 +1,5 @@
 //
-//  MapActionButton.swift
+//  HomeActionButton.swift
 //  Uber
 //
 //  Created by Leonardo Villalobos on 5/20/23.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - MapActionButton
+// MARK: - HomeActionButton
 
-struct MapActionButton: View {
+struct HomeActionButton: View {
   
   @Binding var appState: AppState
 	@Binding var mapOffset: (CGFloat, CGFloat)
@@ -58,12 +58,12 @@ struct MapActionButton: View {
   }
 }
 
-// MARK: - MapActionButton_Previews
+// MARK: - HomeActionButton_Previews
 
-struct MapActionButton_Previews: PreviewProvider {
+struct HomeActionButton_Previews: PreviewProvider {
   
   static var previews: some View {
-		MapActionButton(
+		HomeActionButton(
 			appState: .constant(.idle),
 			mapOffset: .constant((0, 0)),
 			homeSideMenuOffset: .constant((0, 0))

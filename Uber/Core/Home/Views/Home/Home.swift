@@ -24,7 +24,7 @@ struct Home: View {
 				
 				if appState.isShowingSideMenuSubview() {
 					SideMenuButton.view(for: submenuSelection)
-						.padding(.top, 80)
+						.padding(.top, 60)
 				}
 				
 				if appState == .showingSideMenu || appState.isShowingSideMenuSubview() {

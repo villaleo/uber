@@ -16,6 +16,9 @@
 		5213B6CA2A3529F00079FE49 /* ContactUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6C92A3529F00079FE49 /* ContactUs.swift */; };
 		5213B6CC2A352A130079FE49 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6CB2A352A130079FE49 /* Legal.swift */; };
 		5213B6CE2A3661E10079FE49 /* LocationSearchCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6CD2A3661E10079FE49 /* LocationSearchCardModifier.swift */; };
+		5213B6D02A3671DE0079FE49 /* ProfileQuickActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6CF2A3671DE0079FE49 /* ProfileQuickActionButton.swift */; };
+		5213B6D22A3675810079FE49 /* ProfileActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6D12A3675810079FE49 /* ProfileActionsList.swift */; };
+		5213B6D42A3675A80079FE49 /* ProfileActionsListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213B6D32A3675A80079FE49 /* ProfileActionsListRow.swift */; };
 		5233E4E12A2FBCE500A0179B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233E4E02A2FBCE500A0179B /* Color.swift */; };
 		52441BB82A2FD03C00166D43 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB72A2FD03C00166D43 /* Double.swift */; };
 		52441BBA2A2FD5BB00166D43 /* TripDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52441BB92A2FD5BB00166D43 /* TripDestination.swift */; };
@@ -36,6 +39,7 @@
 		52A7C68A2A323B23005F5D5F /* TripItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7C6892A323B23005F5D5F /* TripItinerary.swift */; };
 		52A7C68C2A324525005F5D5F /* TripCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7C68B2A324525005F5D5F /* TripCard.swift */; };
 		52A7C68E2A32487F005F5D5F /* TripCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7C68D2A32487F005F5D5F /* TripCardModifier.swift */; };
+		52C66A0A2A37EE66004F9248 /* ProfileRatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C66A092A37EE66004F9248 /* ProfileRatingButton.swift */; };
 		52D11E8A2A18826D0044E288 /* UberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D11E892A18826D0044E288 /* UberApp.swift */; };
 		52D11E8E2A18826E0044E288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D11E8D2A18826E0044E288 /* Assets.xcassets */; };
 		52D11E912A18826E0044E288 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D11E902A18826E0044E288 /* Preview Assets.xcassets */; };
@@ -56,6 +60,9 @@
 		5213B6C92A3529F00079FE49 /* ContactUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUs.swift; sourceTree = "<group>"; };
 		5213B6CB2A352A130079FE49 /* Legal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
 		5213B6CD2A3661E10079FE49 /* LocationSearchCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchCardModifier.swift; sourceTree = "<group>"; };
+		5213B6CF2A3671DE0079FE49 /* ProfileQuickActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileQuickActionButton.swift; sourceTree = "<group>"; };
+		5213B6D12A3675810079FE49 /* ProfileActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionsList.swift; sourceTree = "<group>"; };
+		5213B6D32A3675A80079FE49 /* ProfileActionsListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionsListRow.swift; sourceTree = "<group>"; };
 		5233E4E02A2FBCE500A0179B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52441BB72A2FD03C00166D43 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		52441BB92A2FD5BB00166D43 /* TripDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDestination.swift; sourceTree = "<group>"; };
@@ -76,6 +83,7 @@
 		52A7C6892A323B23005F5D5F /* TripItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripItinerary.swift; sourceTree = "<group>"; };
 		52A7C68B2A324525005F5D5F /* TripCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCard.swift; sourceTree = "<group>"; };
 		52A7C68D2A32487F005F5D5F /* TripCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCardModifier.swift; sourceTree = "<group>"; };
+		52C66A092A37EE66004F9248 /* ProfileRatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRatingButton.swift; sourceTree = "<group>"; };
 		52D11E862A18826D0044E288 /* Uber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D11E892A18826D0044E288 /* UberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberApp.swift; sourceTree = "<group>"; };
 		52D11E8D2A18826E0044E288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				5213B6C12A3529220079FE49 /* Profile.swift */,
+				5213B6CF2A3671DE0079FE49 /* ProfileQuickActionButton.swift */,
+				5213B6D12A3675810079FE49 /* ProfileActionsList.swift */,
+				5213B6D32A3675A80079FE49 /* ProfileActionsListRow.swift */,
+				52C66A092A37EE66004F9248 /* ProfileRatingButton.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -432,9 +444,12 @@
 				52A7C6882A323609005F5D5F /* TripRideSelectionCellModifier.swift in Sources */,
 				52A7C68A2A323B23005F5D5F /* TripItinerary.swift in Sources */,
 				52FCA23D2A28643200EE9C61 /* AppState.swift in Sources */,
+				5213B6D42A3675A80079FE49 /* ProfileActionsListRow.swift in Sources */,
 				52441BBE2A2FF2A100166D43 /* LocationSearchMapResults.swift in Sources */,
+				5213B6D02A3671DE0079FE49 /* ProfileQuickActionButton.swift in Sources */,
 				52A2D9CD2A19117200B738EA /* MapActionButton.swift in Sources */,
 				52441BC12A2FF5C800166D43 /* Waypoint.swift in Sources */,
+				5213B6D22A3675810079FE49 /* ProfileActionsList.swift in Sources */,
 				52A7C68C2A324525005F5D5F /* TripCard.swift in Sources */,
 				527CE16B2A34D0E200A11079 /* HomeSideMenu.swift in Sources */,
 				52A7C6812A323183005F5D5F /* TripPaymentMethodSelection.swift in Sources */,
@@ -447,6 +462,7 @@
 				52D11E8A2A18826D0044E288 /* UberApp.swift in Sources */,
 				52D11EA42A1883410044E288 /* Map.swift in Sources */,
 				52441BBC2A2FEF8300166D43 /* LocationSearchLocationInput.swift in Sources */,
+				52C66A0A2A37EE66004F9248 /* ProfileRatingButton.swift in Sources */,
 				52D11EA22A1882F50044E288 /* Home.swift in Sources */,
 				5213B6C82A3529C90079FE49 /* Preferences.swift in Sources */,
 				52A7C6832A323351005F5D5F /* TripRideSelection.swift in Sources */,

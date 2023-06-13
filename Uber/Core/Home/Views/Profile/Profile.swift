@@ -12,7 +12,32 @@ import SwiftUI
 struct Profile: View {
 	
 	var body: some View {
-		Text("Hello, World!")
+		VStack {
+			
+			HStack(spacing: 20) {
+				Text("Leonardos Villalobos")
+					.font(.largeTitle)
+					.bold()
+					.lineLimit(2)
+				Spacer()
+				Image("PortraitOfMe")
+					.renderingMode(.original)
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.frame(width: 100, height: 100)
+					.clipShape(Circle())
+					.shadow(radius: 5)
+			}
+			
+			ProfileRatingButton()
+				.padding(.leading)
+			
+			ProfileActionsList()
+				.scrollIndicators(.hidden)
+			Spacer()
+		}
+		.foregroundColor(.theme.primaryTextColor)
+		.padding(.horizontal)
 	}
 	
 }

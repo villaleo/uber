@@ -8,12 +8,7 @@
 import Foundation
 import MapKit
 
-// MARK: - LocationSearchViewModel
-
 class LocationSearchViewModel: NSObject, ObservableObject {
-  
-  // MARK: Properties
-  
   @Published var results = [MKLocalSearchCompletion]()
   @Published var selectedDestination: TripDestination?
   @Published var pickupTime: String?
@@ -29,19 +24,14 @@ class LocationSearchViewModel: NSObject, ObservableObject {
   
   var userLocation: CLLocationCoordinate2D?
   
-  // MARK: Lifecycle
-  
   override init() {
     super.init()
     searchCompleter.delegate = self
     searchCompleter.queryFragment = self.queryFragment
   }
   
-  // MARK: Helpers
-  
   func selectLocation(_ location: MKLocalSearchCompletion) {
     self.selectedDestination = nil
-    
     locationSearch(for: location) { response, error in
       guard error == nil else {
         print("ERROR: Could not search for location '\(location.title)'.")
@@ -52,14 +42,14 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         print("WARN: No items returned for '\(location.title)'")
         return
       }
-      
       let coordinate = item.placemark.coordinate
       self.selectedDestination = .init(title: location.title, coordinate: coordinate)
     }
   }
   
-  private func locationSearch(for localSearch: MKLocalSearchCompletion,
-															completion: @escaping MKLocalSearch.CompletionHandler)
+  private func locationSearch(
+    for localSearch: MKLocalSearchCompletion,
+    completion: @escaping MKLocalSearch.CompletionHandler)
   {
     let request = MKLocalSearch.Request()
     request.naturalLanguageQuery = localSearch.title.appending(localSearch.subtitle)
@@ -80,21 +70,18 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     
     let location = CLLocation(
       latitude: selectedLocation.latitude,
-      longitude: selectedLocation.longitude
-    )
+      longitude: selectedLocation.longitude)
     let destination = CLLocation(
       latitude: selectedDestination.coordinate.latitude,
-      longitude: selectedDestination.coordinate.longitude
-    )
-		
+      longitude: selectedDestination.coordinate.longitude)
     let tripDistanceInMeters = location.distance(from: destination)
-		
     return type.computePrice(for: tripDistanceInMeters)
   }
   
-  func getDestinationRoute(from userLocation: CLLocationCoordinate2D,
-													 to destination: CLLocationCoordinate2D,
-													 completion: @escaping (MKRoute) -> Void)
+  func getDestinationRoute(
+    from userLocation: CLLocationCoordinate2D,
+    to destination: CLLocationCoordinate2D,
+    completion: @escaping (MKRoute) -> Void)
   {
     let userPlacemark = MKPlacemark(coordinate: userLocation)
 		let destinationPlacemark = MKPlacemark(coordinate: destination)
@@ -114,7 +101,6 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         print("WARN: No route was returned for '\(destination)'")
         return
       }
-      
       self.configurePickupAndDropoffTimes(with: route.expectedTravelTime)
       completion(route)
     }
@@ -127,15 +113,10 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     pickupTime = formatter.string(from: .now)
     dropoffTime = formatter.string(from: .now + expectedTravelTime)
   }
-  
 }
 
-// MARK: Conform to MKLocalSearchCompleterDelegate
-
 extension LocationSearchViewModel: MKLocalSearchCompleterDelegate {
-  
   func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
     self.results = completer.results
   }
-  
 }

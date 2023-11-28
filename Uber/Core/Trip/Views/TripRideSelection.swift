@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - TripRideSelection
-
 struct TripRideSelection: View {
-	
 	@State private var rideSelected: Ride = .uberX
 	
 	var body: some View {
@@ -19,7 +16,6 @@ struct TripRideSelection: View {
 				.font(.subheadline)
 				.foregroundColor(.gray)
 				.frame(maxWidth: .infinity, alignment: .leading)
-			
 			ScrollView(.horizontal) {
 				HStack(spacing: 12) {
 					ForEach(Ride.allCases) { ride in
@@ -36,17 +32,12 @@ struct TripRideSelection: View {
 			}
 		}
 	}
-	
 }
 
-// MARK: - TripRideSelection_Previews
-
 struct TripRideSelection_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		TripRideSelection()
 			.environmentObject(LocationSearchViewModel())
 			.padding(.horizontal)
 	}
-	
 }

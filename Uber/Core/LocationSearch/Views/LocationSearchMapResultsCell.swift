@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - LocationSearchMapResultsCell
-
 struct LocationSearchMapResultsCell: View {
-  
   let name: String
   let address: String
   
@@ -22,7 +19,6 @@ struct LocationSearchMapResultsCell: View {
 					.foregroundColor(.blue)
 					.tint(.white)
 					.frame(width: 40, height: 40)
-				
 				VStack(alignment: .leading, spacing: 4) {
 					Text(name)
 						.font(.body)
@@ -38,17 +34,12 @@ struct LocationSearchMapResultsCell: View {
 		}
 		.padding(.horizontal)
   }
-  
 }
 
-// MARK: - LocationSearchMapResultsCell_Previews
-
 struct LocationSearchMapResultsCell_Previews: PreviewProvider {
-  
   static var previews: some View {
     Group {
       LocationSearchMapResultsCell(name: "Starbucks Coffee", address: "123 Main St Soledad, CA")
-      
       VStack {
         ForEach(0..<10, id: \.self) { _ in
           LocationSearchMapResultsCell(name: "Starbucks Coffee", address: "123 Main St Soledad, CA")
@@ -57,5 +48,4 @@ struct LocationSearchMapResultsCell_Previews: PreviewProvider {
       .previewDisplayName("Multiple Cells")
     }
   }
-  
 }

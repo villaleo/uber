@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-// MARK: - TripConfirmRideButton
-
 struct TripConfirmRideButton: View {
-	
 	var body: some View {
 		Button {
-			
+			// TODO: Action
 		} label: {
 			Rectangle()
 				.fill(.blue)
@@ -26,16 +23,11 @@ struct TripConfirmRideButton: View {
 				}
 		}
 	}
-	
 }
 
-// MARK: - TripConfirmRideButton_Previews
-
 struct TripConfirmRideButton_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		TripConfirmRideButton()
 			.padding(.horizontal)
 	}
-	
 }

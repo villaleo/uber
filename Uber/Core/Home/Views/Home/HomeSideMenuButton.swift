@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - HomeSideMenuButton
-
 struct HomeSideMenuButton: View {
-	
 	@Binding var appState: AppState
 	@Binding var selection: SideMenuButton
 	@Binding var mapOffset: (CGFloat, CGFloat)
@@ -36,13 +33,9 @@ struct HomeSideMenuButton: View {
 				.foregroundColor(.theme.primaryTextColor)
 		}
 	}
-	
 }
 
-// MARK: - HomeSideMenuButton_Previews
-
 struct HomeSideMenuButton_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		HomeSideMenuButton(
 			appState: .constant(.showingSideMenu),
@@ -50,8 +43,6 @@ struct HomeSideMenuButton_Previews: PreviewProvider {
 			mapOffset: .constant((0, 0)),
 			homeSideMenuOffset: .constant((0, 0)),
 			label: "Profile",
-			target: .profile
-		)
+			target: .profile)
 	}
-	
 }

@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 enum SideMenuButton: CaseIterable, Identifiable {
-	
 	case profile
 	case history
 	case promotion
@@ -56,5 +55,4 @@ enum SideMenuButton: CaseIterable, Identifiable {
 			}
 		}
 	}
-	
 }

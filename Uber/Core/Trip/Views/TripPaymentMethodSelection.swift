@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - TripPaymentMethodSelection
-
 struct TripPaymentMethodSelection: View {
-	
 	var body: some View {
 		HStack(spacing: 12) {
 			Text("Visa")
@@ -34,13 +31,8 @@ struct TripPaymentMethodSelection: View {
 	}
 }
 
-// MARK: - TripPaymentMethodSelection_Previews
-
 struct TripPaymentMethodSelection_Previews: PreviewProvider {
-	
 	static var previews: some View {
-		TripPaymentMethodSelection()
-			.padding(.horizontal)
+		TripPaymentMethodSelection().padding(.horizontal)
 	}
-	
 }

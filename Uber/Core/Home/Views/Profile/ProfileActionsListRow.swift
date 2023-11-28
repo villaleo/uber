@@ -7,17 +7,14 @@
 
 import SwiftUI
 
-// MARK: - ProfileActionsListRow
-
 struct ProfileActionsListRow: View {
-	
 	let label: String
 	var subLabel: String? = nil
 	let imageName: String
 	
 	var body: some View {
 		Button {
-			
+			// TODO: Action
 		} label: {
 			HStack {
 				Image(systemName: imageName)
@@ -39,15 +36,10 @@ struct ProfileActionsListRow: View {
 		.foregroundColor(.theme.primaryTextColor)
 		.padding(.vertical, 15)
 	}
-	
 }
 
-// MARK: - ProfileActionsListRow_Previews
-
 struct ProfileActionsListRow_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ProfileActionsListRow(label: "Family", subLabel: "Manage a family", imageName: "person.3.fill")
 	}
-	
 }

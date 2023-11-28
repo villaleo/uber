@@ -7,10 +7,7 @@
 
 import Foundation
 
-// MARK: - AppState
-
 enum AppState: Equatable {
-
   case idle
   case searchingForLocation
   case locationSelected
@@ -32,8 +29,6 @@ enum AppState: Equatable {
 			return "\(lhs)" == "\(rhs)"
 		}
 	}
-
-  // MARK: Helpers
   
   func willTriggerRideRequest() -> Bool {
     switch self {
@@ -52,5 +47,4 @@ enum AppState: Equatable {
 			return false
 		}
 	}
-  
 }

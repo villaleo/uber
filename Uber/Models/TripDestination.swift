@@ -8,11 +8,7 @@
 import Foundation
 import CoreLocation
 
-// MARK: - TripDestination
-
 struct TripDestination {
-  
   let title: String
   let coordinate: CLLocationCoordinate2D
-  
 }

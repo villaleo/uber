@@ -8,15 +8,10 @@
 import CoreLocation
 import Foundation
 
-// MARK: - Ride
-
 enum Ride: Int, Identifiable, CaseIterable {
-  
   case uberX
   case uberComfort
   case uberBlack
-  
-  // MARK: Properties
   
   var id: Int {
     self.rawValue
@@ -49,8 +44,6 @@ enum Ride: Int, Identifiable, CaseIterable {
     }
   }
   
-  // MARK: Helpers
-  
   func computePrice(for distanceInMeters: CLLocationDistance) -> Double {
     let distanceInMiles = distanceInMeters / 1600
     switch self {
@@ -62,5 +55,4 @@ enum Ride: Int, Identifiable, CaseIterable {
       return distanceInMiles * 2.5 + baseFare
     }
   }
-	
 }

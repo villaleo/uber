@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - ProfileActionsList
-
 struct ProfileActionsList: View {
-	
 	var body: some View {
 		ScrollView {
 			VStack {
@@ -20,10 +17,8 @@ struct ProfileActionsList: View {
 					ProfileQuickActionButton(label: "Trips", imageName: "clock.fill")
 				}
 				.padding(.top)
-				
 				Divider()
 					.padding(.top, 20)
-				
 				HStack {
 					VStack(alignment: .leading) {
 						ProfileActionsListRow(label: "Send a gift", imageName: "gift.fill")
@@ -46,15 +41,10 @@ struct ProfileActionsList: View {
 			}
 		}
 	}
-	
 }
 
-// MARK: - ProfileActionsList_Previews
-
 struct ProfileActionsList_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ProfileActionsList()
 	}
-	
 }

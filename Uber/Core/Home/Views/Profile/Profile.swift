@@ -7,13 +7,9 @@
 
 import SwiftUI
 
-// MARK: - Profile
-
 struct Profile: View {
-	
 	var body: some View {
 		VStack {
-			
 			HStack(spacing: 20) {
 				Text("Leonardos Villalobos")
 					.font(.largeTitle)
@@ -28,10 +24,8 @@ struct Profile: View {
 					.clipShape(Circle())
 					.shadow(radius: 5)
 			}
-			
 			ProfileRatingButton()
 				.padding(.leading)
-			
 			ProfileActionsList()
 				.scrollIndicators(.hidden)
 			Spacer()
@@ -39,15 +33,10 @@ struct Profile: View {
 		.foregroundColor(.theme.primaryTextColor)
 		.padding(.horizontal)
 	}
-	
 }
 
-// MARK: - Profile_Previews
-
 struct Profile_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		Profile()
 	}
-	
 }

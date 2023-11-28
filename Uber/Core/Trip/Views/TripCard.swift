@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - TripCard
-
 struct TripCard: View {
-	
 	var body: some View {
 		VStack {
 			TripItinerary()
@@ -24,13 +21,9 @@ struct TripCard: View {
 			TripConfirmRideButton()
 		}
 	}
-	
 }
 
-// MARK: - TripCard_Previews
-
 struct TripCard_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ZStack {
 			Color.theme.secondaryBackgroundColor
@@ -43,5 +36,4 @@ struct TripCard_Previews: PreviewProvider {
 				.modifier(TripCardModifier())
 		}
 	}
-	
 }

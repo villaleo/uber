@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - HomeActionButton
-
 struct HomeActionButton: View {
-  
   @Binding var appState: AppState
 	@Binding var mapOffset: (CGFloat, CGFloat)
 	@Binding var homeSideMenuOffset: (CGFloat, CGFloat)
@@ -30,8 +27,6 @@ struct HomeActionButton: View {
         .shadow(radius: 6)
     }
   }
-  
-  // MARK: Helpers
   
   private func action(for state: AppState) {
     switch appState {
@@ -58,10 +53,7 @@ struct HomeActionButton: View {
   }
 }
 
-// MARK: - HomeActionButton_Previews
-
 struct HomeActionButton_Previews: PreviewProvider {
-  
   static var previews: some View {
 		HomeActionButton(
 			appState: .constant(.idle),
@@ -69,5 +61,4 @@ struct HomeActionButton_Previews: PreviewProvider {
 			homeSideMenuOffset: .constant((0, 0))
 		)
   }
-  
 }

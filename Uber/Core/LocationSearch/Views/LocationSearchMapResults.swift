@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - LocationSearchMapResults
-
 struct LocationSearchMapResults: View {
-  
   @EnvironmentObject var viewModel: LocationSearchViewModel
   @Binding var appState: AppState
   
@@ -29,13 +26,9 @@ struct LocationSearchMapResults: View {
       }
     }
   }
-  
 }
 
-// MARK: - LocationSearchMapResults_Previews
-
 struct LocationSearchMapResults_Previews: PreviewProvider {
-  
 	static var locationSearch: LocationSearchViewModel {
 		let viewModel = LocationSearchViewModel()
 		viewModel.queryFragment = "Fo"
@@ -46,5 +39,4 @@ struct LocationSearchMapResults_Previews: PreviewProvider {
     LocationSearchMapResults(appState: .constant(.idle))
 			.environmentObject(locationSearch)
   }
-  
 }

@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct LocationSearchCardModifier: ViewModifier {
-	
 	func body(content: Content) -> some View {
 		content
 			.presentationDetents([.height(670), .height(675)])

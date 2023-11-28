@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-// MARK: - LocationSearchButton
-
 struct LocationSearchButton: View {
-	
 	@Binding var appState: AppState
-  
+
   var body: some View {
 		Button {
 			withAnimation(.spring(dampingFraction: 0.7)) {
@@ -33,19 +30,13 @@ struct LocationSearchButton: View {
 				Rectangle()
 					.fill(.white)
 					.cornerRadius(5)
-					.shadow(radius: 3)
-			)
+					.shadow(radius: 3))
     }
   }
-  
 }
 
-// MARK: - LocationSearchButton_Previews
-
 struct LocationSearchButton_Previews: PreviewProvider {
-  
   static var previews: some View {
 		LocationSearchButton(appState: .constant(.idle))
   }
-  
 }

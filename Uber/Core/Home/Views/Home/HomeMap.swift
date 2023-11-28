@@ -8,26 +8,15 @@
 import SwiftUI
 import MapKit
 
-// MARK: - HomeMap
-
 struct HomeMap {
-  
-  // MARK: Properties
-  
   @EnvironmentObject var locationViewModel: LocationSearchViewModel
   @Binding var appState: AppState
   
   let mapView = MKMapView()
   let locationManager = LocationManager.shared
-  
 }
 
-// MARK: - Conform to UIViewRepresentable
-
 extension HomeMap: UIViewRepresentable {
-  
-  // MARK: Required Functions
-  
   func makeUIView(context: Context) -> some UIView {
     mapView.delegate = context.coordinator
     mapView.isRotateEnabled = false
@@ -43,51 +32,43 @@ extension HomeMap: UIViewRepresentable {
     case .idle:
       context.coordinator.clearMapViewAndRecenterOnUserRegion()
 			context.coordinator.toggleIsMapInteractive()
+      context.coordinator.parent.mapView.userTrackingMode = .follow
     case .locationSelected:
       if let destination = locationViewModel.selectedDestination {
         context.coordinator.addAndSelectAnnotation(with: destination.coordinate)
         context.coordinator.configurePolyline(with: destination.coordinate)
       }
+      context.coordinator.parent.mapView.userTrackingMode = .none
 		case .showingSideMenu:
 			context.coordinator.toggleIsMapInteractive()
+      context.coordinator.parent.mapView.userTrackingMode = .follow
     default:
       break
     }
   }
   
-  func makeCoordinator() -> HomeMapCoordinator {
-    return HomeMapCoordinator(parent: self)
+  func makeCoordinator() -> Coordinator {
+    return Coordinator(parent: self)
   }
-  
 }
 
 extension HomeMap {
-  
-  // MARK: - HomeMapCoordinator
-  
-  class HomeMapCoordinator: NSObject, MKMapViewDelegate {
-    
+  class Coordinator: NSObject, MKMapViewDelegate {
     let parent: HomeMap
     var userLocation: CLLocationCoordinate2D?
     var currentRegion: MKCoordinateRegion?
-    
-    // MARK: Lifecycle
     
     init(parent: HomeMap) {
       self.parent = parent
       super.init()
     }
     
-    // MARK: Delegate Functions
-    
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
       let region = MKCoordinateRegion(
         center: .init(
           latitude: userLocation.coordinate.latitude,
-          longitude: userLocation.coordinate.longitude
-        ),
-        span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
-      )
+          longitude: userLocation.coordinate.longitude),
+        span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
       
       if parent.appState == .idle {
         self.parent.mapView.setRegion(region, animated: true)
@@ -102,12 +83,9 @@ extension HomeMap {
       polyline.lineWidth = 6
       return polyline
     }
-    
-    // MARK: Helpers
-    
+        
     fileprivate func addAndSelectAnnotation(with coordinate: CLLocationCoordinate2D) {
       parent.mapView.removeAnnotations(parent.mapView.annotations)
-      
       let annotation = MKPointAnnotation()
       annotation.coordinate = coordinate
       parent.mapView.addAnnotation(annotation)
@@ -127,9 +105,7 @@ extension HomeMap {
         
         let mapRect = self.parent.mapView.mapRectThatFits(
           route.polyline.boundingMapRect,
-          edgePadding: .init(top: 64, left: 32, bottom: 500, right: 32)
-        )
-				
+          edgePadding: .init(top: 64, left: 32, bottom: 500, right: 32))
         self.parent.mapView.setRegion(.init(mapRect), animated: true)
       }
     }
@@ -147,7 +123,5 @@ extension HomeMap {
 			parent.mapView.isZoomEnabled.toggle()
 			parent.mapView.isScrollEnabled.toggle()
 		}
-    
   }
-  
 }

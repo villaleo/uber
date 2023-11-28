@@ -8,7 +8,6 @@
 import Foundation
 
 extension Double {
-  
   private var formatter: NumberFormatter {
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
@@ -17,10 +16,7 @@ extension Double {
     return formatter
   }
   
-  // MARK: Helpers
-  
   func asCurrency() -> String {
     return formatter.string(for: self) ?? ""
   }
-  
 }

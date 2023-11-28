@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - Waypoint
-
 struct Waypoint: View {
-	
   var body: some View {
     VStack {
       Circle()
@@ -24,15 +21,10 @@ struct Waypoint: View {
         .frame(width: 6, height: 6)
     }
   }
-  
 }
 
-// MARK: - Waypoint_Previews
-
 struct Waypoint_Previews: PreviewProvider {
-  
   static var previews: some View {
     Waypoint()
   }
-  
 }

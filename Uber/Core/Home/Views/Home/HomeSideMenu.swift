@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - HomeSideMenu
-
 struct HomeSideMenu: View {
-	
 	@Binding var appState: AppState
 	@Binding var submenuSelection: SideMenuButton
 	@Binding var mapOffset: (CGFloat, CGFloat)
@@ -18,9 +15,7 @@ struct HomeSideMenu: View {
 	
 	var body: some View {
 		ZStack(alignment: .leading) {
-			Color.theme.secondaryBackgroundColor
-				.ignoresSafeArea()
-			
+			Color.theme.secondaryBackgroundColor.ignoresSafeArea()
 			VStack {
 				Image("PortraitOfMe")
 					.renderingMode(.original)
@@ -32,7 +27,6 @@ struct HomeSideMenu: View {
 				Text("Leonardo Villalobos")
 					.font(.title2)
 					.bold()
-				
 				HStack {
 					Image(systemName: "star.fill")
 						.renderingMode(.original)
@@ -54,7 +48,6 @@ struct HomeSideMenu: View {
 				}
 				.frame(height: 30)
 				.padding(.bottom, 20)
-				
 				VStack(alignment: .leading) {
 					ForEach(SideMenuButton.allCases) { selection in
 						HomeSideMenuButton(
@@ -70,32 +63,23 @@ struct HomeSideMenu: View {
 				.font(.title3)
 			}
 			.padding(.horizontal, 30)
-			
 		}
 		.foregroundColor(Color.theme.primaryTextColor)
-		
 	}
-	
 }
 
-// MARK: - HomeSideMenu_Previews
-
 struct HomeSideMenu_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ZStack {
 			HomeSideMenu(
 				appState: .constant(.showingSideMenu),
 				submenuSelection: .constant(.profile),
 				mapOffset: .constant((0, 0)),
-				homeSideMenuOffset: .constant((0, 0))
-			)
-			
+				homeSideMenuOffset: .constant((0, 0)))
 			Color.theme.backgroundColor
 				.ignoresSafeArea()
 				.shadow(radius: 10)
 				.offset(x: 270)
 		}
 	}
-	
 }

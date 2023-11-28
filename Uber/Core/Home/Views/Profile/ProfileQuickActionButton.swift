@@ -7,16 +7,13 @@
 
 import SwiftUI
 
-// MARK: - ProfileQuickActionButton
-
 struct ProfileQuickActionButton: View {
-	
 	let label: String
 	let imageName: String
 	
 	var body: some View {
 		Button {
-			
+      // TODO: Action
 		} label: {
 			VStack {
 				Image(systemName: imageName)
@@ -32,15 +29,10 @@ struct ProfileQuickActionButton: View {
 		.foregroundColor(.theme.primaryTextColor)
 		.cornerRadius(10)
 	}
-	
 }
 
-// MARK: - ProfileQuickActionButton_Previews
-
 struct ProfileQuickActionButton_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ProfileQuickActionButton(label: "Help", imageName: "lifepreserver.fill")
 	}
-	
 }

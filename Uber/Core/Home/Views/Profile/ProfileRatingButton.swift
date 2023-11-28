@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-// MARK: - ProfileRatingButton
-
 struct ProfileRatingButton: View {
-	
 	var body: some View {
 		Button {
-			
+			// TODO: Action
 		} label: {
 			HStack {
 				HStack {
@@ -36,15 +33,10 @@ struct ProfileRatingButton: View {
 			.foregroundColor(.theme.primaryTextColor)
 		}
 	}
-	
 }
 
-// MARK: - ProfileRatingButton_Previews
-
 struct ProfileRatingButton_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		ProfileRatingButton()
 	}
-	
 }

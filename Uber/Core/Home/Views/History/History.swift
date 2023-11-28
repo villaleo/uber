@@ -7,22 +7,14 @@
 
 import SwiftUI
 
-// MARK: - History
-
 struct History: View {
-	
 	var body: some View {
 		Text("Hello, World!")
 	}
-	
 }
 
-// MARK: - History_Previews
-
 struct History_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		History()
 	}
-	
 }

@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: - LocationSearchLocationInput
-
 struct LocationSearchLocationInput: View {
-  
   @EnvironmentObject var viewModel: LocationSearchViewModel
   @State var startLocationText: String = ""
   
@@ -34,17 +31,12 @@ struct LocationSearchLocationInput: View {
         .cornerRadius(8)
     }
   }
-  
 }
 
-// MARK: - LocationSearchLocationInput_Previews
-
 struct LocationSearchLocationInput_Previews: PreviewProvider {
-  
   static var previews: some View {
     LocationSearchLocationInput()
       .environmentObject(LocationSearchViewModel())
 			.padding(.horizontal)
   }
-  
 }

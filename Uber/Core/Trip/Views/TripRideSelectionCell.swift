@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// MARK: TripRideSelectionCell
-
 struct TripRideSelectionCell: View {
-	
 	@EnvironmentObject var location: LocationSearchViewModel
 	let ride: Ride
 	
@@ -20,7 +17,6 @@ struct TripRideSelectionCell: View {
 				.resizable()
 				.frame(width: 85, height: 85)
 				.scaledToFit()
-			
 			VStack(alignment: .leading, spacing: 2.5) {
 				Text(ride.description)
 					.font(.subheadline)
@@ -34,16 +30,11 @@ struct TripRideSelectionCell: View {
 			.padding(5)
 		}
 	}
-	
 }
 
-// MARK: - TripRideSelectionCell_Previews
-
 struct TripRideSelectionCell_Previews: PreviewProvider {
-	
 	static var previews: some View {
 		TripRideSelectionCell(ride: .uberComfort)
 			.environmentObject(LocationSearchViewModel())
 	}
-	
 }

@@ -8,10 +8,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - TripCardModifier
-
 struct TripCardModifier: ViewModifier {
-	
 	func body(content: Content) -> some View {
 		content
 			.presentationDetents([.height(510), .height(500)])
@@ -21,5 +18,4 @@ struct TripCardModifier: ViewModifier {
 			.presentationCornerRadius(25)
 			.interactiveDismissDisabled()
 	}
-	
 }

@@ -7,18 +7,10 @@
 
 import CoreLocation
 
-// MARK: - LocationManager
-
 class LocationManager: NSObject, ObservableObject {
-  
-  // MARK: Properties
-  
   @Published var userLocation: CLLocationCoordinate2D?
-  
   private let manager = CLLocationManager()
   static let shared = LocationManager()
-  
-  // MARK: Lifecycle
   
   override init() {
     super.init()
@@ -27,22 +19,17 @@ class LocationManager: NSObject, ObservableObject {
     manager.requestWhenInUseAuthorization()
     manager.startUpdatingLocation()
   }
-  
 }
 
-// MARK: Conform to CLLocationManagerDelegate
-
 extension LocationManager: CLLocationManagerDelegate {
-  
-  func locationManager(_ manager: CLLocationManager,
-											 didUpdateLocations locations: [CLLocation])
+  func locationManager(
+    _ manager: CLLocationManager,
+    didUpdateLocations locations: [CLLocation])
 	{
     guard let location = locations.first else {
       return
     }
-    
     userLocation = location.coordinate
     manager.stopUpdatingLocation()
   }
-  
 }
